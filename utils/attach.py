@@ -18,3 +18,8 @@ class Attach:
         """log_type of browser logs should be equal to log_type in DesiredCapabilities."""
         logs = "".join(f'{text}\n' for text in browser.driver.get_log(log_type='browser'))
         allure.attach(body=logs, name='browser_logs', attachment_type=AttachmentType.TEXT, extension='.log')
+
+    def add_html(self, browser):
+        html = browser.driver.page_source
+        allure.attach(body=html, name='page_source', attachment_type=AttachmentType.HTML, extension='.html')
+

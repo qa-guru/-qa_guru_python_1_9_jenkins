@@ -7,7 +7,6 @@ from selene import Browser, Config
 
 @pytest.fixture(scope='session')
 def browser_chrome():
-
     capabilities = DesiredCapabilities.CHROME
 
     capabilities.update({
@@ -34,5 +33,5 @@ def browser_chrome():
     Attach().add_png(browser)
     Attach().add_video(browser)
     Attach().add_logs(browser)
-    Attach()
+    Attach().add_html(browser)
     browser.quit()
